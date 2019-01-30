@@ -1,0 +1,526 @@
+azure@Azure:~/shajiv-terraform$ terraform plan
+
+Warning: azurerm_public_ip.tf-guide-pip: "public_ip_address_allocation": [DEPRECATED] this property has been deprecated in favor of `allocation_method` to better matchthe api
+
+
+
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + azurerm_network_interface.tf-guide-nic
+      id:                                                                    <computed>
+      applied_dns_servers.#:                                                 <computed>
+      dns_servers.#:                                                         <computed>
+      enable_accelerated_networking:                                         "false"
+      enable_ip_forwarding:                                                  "false"
+      internal_dns_name_label:                                               <computed>
+      internal_fqdn:                                                         <computed>
+      ip_configuration.#:                                                    "1"
+      ip_configuration.0.application_gateway_backend_address_pools_ids.#:    <computed>
+      ip_configuration.0.application_security_group_ids.#:                   <computed>
+      ip_configuration.0.load_balancer_backend_address_pools_ids.#:          <computed>
+      ip_configuration.0.load_balancer_inbound_nat_rules_ids.#:              <computed>
+      ip_configuration.0.name:                                               "tfguideipconfig"
+      ip_configuration.0.primary:                                            <computed>
+      ip_configuration.0.private_ip_address_allocation:                      "dynamic"
+      ip_configuration.0.private_ip_address_version:                         "IPv4"
+      ip_configuration.0.public_ip_address_id:                               "${azurerm_public_ip.tf-guide-pip.id}"
+      ip_configuration.0.subnet_id:                                          "${azurerm_subnet.subnet.id}"
+      location:                                                              "southeastasia"
+      mac_address:                                                           <computed>
+      name:                                                                  "tfguidetf-guide-nic"
+      network_security_group_id:                                             "${azurerm_network_security_group.tf-guide-sg.id}"
+      private_ip_address:                                                    <computed>
+      private_ip_addresses.#:                                                <computed>
+      resource_group_name:                                                   "Shajiv-terraform"
+      tags.%:                                                                <computed>
+      virtual_machine_id:                                                    <computed>
+
+  + azurerm_network_security_group.tf-guide-sg
+      id:                                                                    <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "tfguide-sg"
+      resource_group_name:                                                   "Shajiv-terraform"
+      security_rule.#:                                                       "2"
+      security_rule.2008300084.access:                                       "Allow"
+      security_rule.2008300084.description:                                  ""
+      security_rule.2008300084.destination_address_prefix:                   "*"
+      security_rule.2008300084.destination_address_prefixes.#:               "0"
+      security_rule.2008300084.destination_application_security_group_ids.#: "0"
+      security_rule.2008300084.destination_port_range:                       "22"
+      security_rule.2008300084.destination_port_ranges.#:                    "0"
+      security_rule.2008300084.direction:                                    "Inbound"
+      security_rule.2008300084.name:                                         "SSH"
+      security_rule.2008300084.priority:                                     "101"
+      security_rule.2008300084.protocol:                                     "Tcp"
+      security_rule.2008300084.source_address_prefix:                        "*"
+      security_rule.2008300084.source_address_prefixes.#:                    "0"
+      security_rule.2008300084.source_application_security_group_ids.#:      "0"
+      security_rule.2008300084.source_port_range:                            "*"
+      security_rule.2008300084.source_port_ranges.#:                         "0"
+      security_rule.920215974.access:                                        "Allow"
+      security_rule.920215974.description:                                   ""
+      security_rule.920215974.destination_address_prefix:                    "*"
+      security_rule.920215974.destination_address_prefixes.#:                "0"
+      security_rule.920215974.destination_application_security_group_ids.#:  "0"
+      security_rule.920215974.destination_port_range:                        "80"
+      security_rule.920215974.destination_port_ranges.#:                     "0"
+      security_rule.920215974.direction:                                     "Inbound"
+      security_rule.920215974.name:                                          "HTTP"
+      security_rule.920215974.priority:                                      "100"
+      security_rule.920215974.protocol:                                      "Tcp"
+      security_rule.920215974.source_address_prefix:                         "*"
+      security_rule.920215974.source_address_prefixes.#:                     "0"
+      security_rule.920215974.source_application_security_group_ids.#:       "0"
+      security_rule.920215974.source_port_range:                             "*"
+      security_rule.920215974.source_port_ranges.#:                          "0"
+      tags.%:                                                                <computed>
+
+  + azurerm_public_ip.tf-guide-pip
+      id:                                                                    <computed>
+      allocation_method:                                                     <computed>
+      domain_name_label:                                                     "shajivteraform"
+      fqdn:                                                                  <computed>
+      idle_timeout_in_minutes:                                               "4"
+      ip_address:                                                            <computed>
+      ip_version:                                                            "IPv4"
+      location:                                                              "southeastasia"
+      name:                                                                  "tfguide-ip"
+      public_ip_address_allocation:                                          "dynamic"
+      resource_group_name:                                                   "Shajiv-terraform"
+      sku:                                                                   "Basic"
+      tags.%:                                                                <computed>
+
+  + azurerm_resource_group.tf_azure_guide
+      id:                                                                    <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "Shajiv-terraform"
+      tags.%:                                                                <computed>
+
+  + azurerm_subnet.subnet
+      id:                                                                    <computed>
+      address_prefix:                                                        "10.0.10.0/24"
+      ip_configurations.#:                                                   <computed>
+      name:                                                                  "tfguidesubnet"
+      resource_group_name:                                                   "Shajiv-terraform"
+      virtual_network_name:                                                  "vnet"
+
+  + azurerm_virtual_machine.site
+      id:                                                                    <computed>
+      availability_set_id:                                                   <computed>
+      delete_data_disks_on_termination:                                      "false"
+      delete_os_disk_on_termination:                                         "true"
+      identity.#:                                                            <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "shajivteraform-southeastasia"
+      network_interface_ids.#:                                               <computed>
+      os_profile.#:                                                          "1"
+      os_profile.4144788423.admin_password:                                  <sensitive>
+      os_profile.4144788423.admin_username:                                  "adminuser"
+      os_profile.4144788423.computer_name:                                   "shajivteraform"
+      os_profile.4144788423.custom_data:                                     <computed>
+      os_profile_linux_config.#:                                             "1"
+      os_profile_linux_config.2972667452.disable_password_authentication:    "false"
+      os_profile_linux_config.2972667452.ssh_keys.#:                         "0"
+      resource_group_name:                                                   "Shajiv-terraform"
+      storage_data_disk.#:                                                   <computed>
+      storage_image_reference.#:                                             "1"
+      storage_image_reference.1458860473.id:                                 ""
+      storage_image_reference.1458860473.offer:                              "UbuntuServer"
+      storage_image_reference.1458860473.publisher:                          "Canonical"
+      storage_image_reference.1458860473.sku:                                "16.04-LTS"
+      storage_image_reference.1458860473.version:                            "latest"
+      storage_os_disk.#:                                                     "1"
+      storage_os_disk.0.caching:                                             "ReadWrite"
+      storage_os_disk.0.create_option:                                       "FromImage"
+      storage_os_disk.0.disk_size_gb:                                        <computed>
+      storage_os_disk.0.managed_disk_id:                                     <computed>
+      storage_os_disk.0.managed_disk_type:                                   "Standard_LRS"
+      storage_os_disk.0.name:                                                "shajivteraform-osdisk"
+      storage_os_disk.0.write_accelerator_enabled:                           "false"
+      tags.%:                                                                <computed>
+      vm_size:                                                               "Standard_A1_v2"
+
+  + azurerm_virtual_network.vnet
+      id:                                                                    <computed>
+      address_space.#:                                                       "1"
+      address_space.0:                                                       "10.0.0.0/16"
+      location:                                                              "southeastasia"
+      name:                                                                  "vnet"
+      resource_group_name:                                                   "Shajiv-terraform"
+      subnet.#:                                                              <computed>
+      tags.%:                                                                <computed>
+
+
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
+
+azure@Azure:~/shajiv-terraform$ vi main.tf
+azure@Azure:~/shajiv-terraform$ cat terraform.tfvars
+resource_group = "Shajiv-terraform"
+hostname = "shajivteraform"
+location = "southeastasia"
+azure@Azure:~/shajiv-terraform$ vi main.tf
+azure@Azure:~/shajiv-terraform$ terraform apply
+
+Warning: azurerm_public_ip.tf-guide-pip: "public_ip_address_allocation": [DEPRECATED] this property has been deprecated in favor of `allocation_method` to better matchthe api
+
+
+
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + azurerm_network_interface.tf-guide-nic
+      id:                                                                    <computed>
+      applied_dns_servers.#:                                                 <computed>
+      dns_servers.#:                                                         <computed>
+      enable_accelerated_networking:                                         "false"
+      enable_ip_forwarding:                                                  "false"
+      internal_dns_name_label:                                               <computed>
+      internal_fqdn:                                                         <computed>
+      ip_configuration.#:                                                    "1"
+      ip_configuration.0.application_gateway_backend_address_pools_ids.#:    <computed>
+      ip_configuration.0.application_security_group_ids.#:                   <computed>
+      ip_configuration.0.load_balancer_backend_address_pools_ids.#:          <computed>
+      ip_configuration.0.load_balancer_inbound_nat_rules_ids.#:              <computed>
+      ip_configuration.0.name:                                               "tfguideipconfig"
+      ip_configuration.0.primary:                                            <computed>
+      ip_configuration.0.private_ip_address_allocation:                      "dynamic"
+      ip_configuration.0.private_ip_address_version:                         "IPv4"
+      ip_configuration.0.public_ip_address_id:                               "${azurerm_public_ip.tf-guide-pip.id}"
+      ip_configuration.0.subnet_id:                                          "${azurerm_subnet.subnet.id}"
+      location:                                                              "southeastasia"
+      mac_address:                                                           <computed>
+      name:                                                                  "tfguidetf-guide-nic"
+      network_security_group_id:                                             "${azurerm_network_security_group.tf-guide-sg.id}"
+      private_ip_address:                                                    <computed>
+      private_ip_addresses.#:                                                <computed>
+      resource_group_name:                                                   "Shajiv-terraform"
+      tags.%:                                                                <computed>
+      virtual_machine_id:                                                    <computed>
+
+  + azurerm_network_security_group.tf-guide-sg
+      id:                                                                    <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "tfguide-sg"
+      resource_group_name:                                                   "Shajiv-terraform"
+      security_rule.#:                                                       "2"
+      security_rule.2008300084.access:                                       "Allow"
+      security_rule.2008300084.description:                                  ""
+      security_rule.2008300084.destination_address_prefix:                   "*"
+      security_rule.2008300084.destination_address_prefixes.#:               "0"
+      security_rule.2008300084.destination_application_security_group_ids.#: "0"
+      security_rule.2008300084.destination_port_range:                       "22"
+      security_rule.2008300084.destination_port_ranges.#:                    "0"
+      security_rule.2008300084.direction:                                    "Inbound"
+      security_rule.2008300084.name:                                         "SSH"
+      security_rule.2008300084.priority:                                     "101"
+      security_rule.2008300084.protocol:                                     "Tcp"
+      security_rule.2008300084.source_address_prefix:                        "*"
+      security_rule.2008300084.source_address_prefixes.#:                    "0"
+      security_rule.2008300084.source_application_security_group_ids.#:      "0"
+      security_rule.2008300084.source_port_range:                            "*"
+      security_rule.2008300084.source_port_ranges.#:                         "0"
+      security_rule.920215974.access:                                        "Allow"
+      security_rule.920215974.description:                                   ""
+      security_rule.920215974.destination_address_prefix:                    "*"
+      security_rule.920215974.destination_address_prefixes.#:                "0"
+      security_rule.920215974.destination_application_security_group_ids.#:  "0"
+      security_rule.920215974.destination_port_range:                        "80"
+      security_rule.920215974.destination_port_ranges.#:                     "0"
+      security_rule.920215974.direction:                                     "Inbound"
+      security_rule.920215974.name:                                          "HTTP"
+      security_rule.920215974.priority:                                      "100"
+      security_rule.920215974.protocol:                                      "Tcp"
+      security_rule.920215974.source_address_prefix:                         "*"
+      security_rule.920215974.source_address_prefixes.#:                     "0"
+      security_rule.920215974.source_application_security_group_ids.#:       "0"
+      security_rule.920215974.source_port_range:                             "*"
+      security_rule.920215974.source_port_ranges.#:                          "0"
+      tags.%:                                                                <computed>
+
+  + azurerm_public_ip.tf-guide-pip
+      id:                                                                    <computed>
+      allocation_method:                                                     <computed>
+      domain_name_label:                                                     "shajivteraform"
+      fqdn:                                                                  <computed>
+      idle_timeout_in_minutes:                                               "4"
+      ip_address:                                                            <computed>
+      ip_version:                                                            "IPv4"
+      location:                                                              "southeastasia"
+      name:                                                                  "tfguide-ip"
+      public_ip_address_allocation:                                          "dynamic"
+      resource_group_name:                                                   "Shajiv-terraform"
+      sku:                                                                   "Basic"
+      tags.%:                                                                <computed>
+
+  + azurerm_resource_group.tf_azure_guide
+      id:                                                                    <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "Shajiv-terraform"
+      tags.%:                                                                <computed>
+
+  + azurerm_subnet.subnet
+      id:                                                                    <computed>
+      address_prefix:                                                        "10.0.10.0/24"
+      ip_configurations.#:                                                   <computed>
+      name:                                                                  "tfguidesubnet"
+      resource_group_name:                                                   "Shajiv-terraform"
+      virtual_network_name:                                                  "vnet"
+
+  + azurerm_virtual_machine.site
+      id:                                                                    <computed>
+      availability_set_id:                                                   <computed>
+      delete_data_disks_on_termination:                                      "false"
+      delete_os_disk_on_termination:                                         "true"
+      identity.#:                                                            <computed>
+      location:                                                              "southeastasia"
+      name:                                                                  "shajivteraform-southeastasia"
+      network_interface_ids.#:                                               <computed>
+      os_profile.#:                                                          "1"
+      os_profile.4144788423.admin_password:                                  <sensitive>
+      os_profile.4144788423.admin_username:                                  "adminuser"
+      os_profile.4144788423.computer_name:                                   "shajivteraform"
+      os_profile.4144788423.custom_data:                                     <computed>
+      os_profile_linux_config.#:                                             "1"
+      os_profile_linux_config.2972667452.disable_password_authentication:    "false"
+      os_profile_linux_config.2972667452.ssh_keys.#:                         "0"
+      resource_group_name:                                                   "Shajiv-terraform"
+      storage_data_disk.#:                                                   <computed>
+      storage_image_reference.#:                                             "1"
+      storage_image_reference.1458860473.id:                                 ""
+      storage_image_reference.1458860473.offer:                              "UbuntuServer"
+      storage_image_reference.1458860473.publisher:                          "Canonical"
+      storage_image_reference.1458860473.sku:                                "16.04-LTS"
+      storage_image_reference.1458860473.version:                            "latest"
+      storage_os_disk.#:                                                     "1"
+      storage_os_disk.0.caching:                                             "ReadWrite"
+      storage_os_disk.0.create_option:                                       "FromImage"
+      storage_os_disk.0.disk_size_gb:                                        <computed>
+      storage_os_disk.0.managed_disk_id:                                     <computed>
+      storage_os_disk.0.managed_disk_type:                                   "Standard_LRS"
+      storage_os_disk.0.name:                                                "shajivteraform-osdisk"
+      storage_os_disk.0.write_accelerator_enabled:                           "false"
+      tags.%:                                                                <computed>
+      vm_size:                                                               "Standard_A1_v2"
+
+  + azurerm_virtual_network.vnet
+      id:                                                                    <computed>
+      address_space.#:                                                       "1"
+      address_space.0:                                                       "10.0.0.0/16"
+      location:                                                              "southeastasia"
+      name:                                                                  "vnet"
+      resource_group_name:                                                   "Shajiv-terraform"
+      subnet.#:                                                              <computed>
+      tags.%:                                                                <computed>
+
+
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+azurerm_resource_group.tf_azure_guide: Creating...
+  location: "" => "southeastasia"
+  name:     "" => "Shajiv-terraform"
+  tags.%:   "" => "<computed>"
+azurerm_resource_group.tf_azure_guide: Creation complete after 1s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...350858/resourceGroups/Shajiv-terraform)
+azurerm_public_ip.tf-guide-pip: Creating...
+  allocation_method:            "" => "<computed>"
+  domain_name_label:            "" => "shajivteraform"
+  fqdn:                         "" => "<computed>"
+  idle_timeout_in_minutes:      "" => "4"
+  ip_address:                   "" => "<computed>"
+  ip_version:                   "" => "IPv4"
+  location:                     "" => "southeastasia"
+  name:                         "" => "tfguide-ip"
+  public_ip_address_allocation: "" => "dynamic"
+  resource_group_name:          "" => "Shajiv-terraform"
+  sku:                          "" => "Basic"
+  tags.%:                       "" => "<computed>"
+azurerm_virtual_network.vnet: Creating...
+  address_space.#:     "" => "1"
+  address_space.0:     "" => "10.0.0.0/16"
+  location:            "" => "southeastasia"
+  name:                "" => "vnet"
+  resource_group_name: "" => "Shajiv-terraform"
+  subnet.#:            "" => "<computed>"
+  tags.%:              "" => "<computed>"
+azurerm_network_security_group.tf-guide-sg: Creating...
+  location:                                                              "" => "southeastasia"
+  name:                                                                  "" => "tfguide-sg"
+  resource_group_name:                                                   "" => "Shajiv-terraform"
+  security_rule.#:                                                       "" => "2"
+  security_rule.2008300084.access:                                       "" => "Allow"
+  security_rule.2008300084.description:                                  "" => ""
+  security_rule.2008300084.destination_address_prefix:                   "" => "*"
+  security_rule.2008300084.destination_address_prefixes.#:               "" => "0"
+  security_rule.2008300084.destination_application_security_group_ids.#: "" => "0"
+  security_rule.2008300084.destination_port_range:                       "" => "22"
+  security_rule.2008300084.destination_port_ranges.#:                    "" => "0"
+  security_rule.2008300084.direction:                                    "" => "Inbound"
+  security_rule.2008300084.name:                                         "" => "SSH"
+  security_rule.2008300084.priority:                                     "" => "101"
+  security_rule.2008300084.protocol:                                     "" => "Tcp"
+  security_rule.2008300084.source_address_prefix:                        "" => "*"
+  security_rule.2008300084.source_address_prefixes.#:                    "" => "0"
+  security_rule.2008300084.source_application_security_group_ids.#:      "" => "0"
+  security_rule.2008300084.source_port_range:                            "" => "*"
+  security_rule.2008300084.source_port_ranges.#:                         "" => "0"
+  security_rule.920215974.access:                                        "" => "Allow"
+  security_rule.920215974.description:                                   "" => ""
+  security_rule.920215974.destination_address_prefix:                    "" => "*"
+  security_rule.920215974.destination_address_prefixes.#:                "" => "0"
+  security_rule.920215974.destination_application_security_group_ids.#:  "" => "0"
+  security_rule.920215974.destination_port_range:                        "" => "80"
+  security_rule.920215974.destination_port_ranges.#:                     "" => "0"
+  security_rule.920215974.direction:                                     "" => "Inbound"
+  security_rule.920215974.name:                                          "" => "HTTP"
+  security_rule.920215974.priority:                                      "" => "100"
+  security_rule.920215974.protocol:                                      "" => "Tcp"
+  security_rule.920215974.source_address_prefix:                         "" => "*"
+  security_rule.920215974.source_address_prefixes.#:                     "" => "0"
+  security_rule.920215974.source_application_security_group_ids.#:       "" => "0"
+  security_rule.920215974.source_port_range:                             "" => "*"
+  security_rule.920215974.source_port_ranges.#:                          "" => "0"
+  tags.%:                                                                "" => "<computed>"
+azurerm_public_ip.tf-guide-pip: Creation complete after 3s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...t.Network/publicIPAddresses/tfguide-ip)
+azurerm_virtual_network.vnet: Still creating... (10s elapsed)
+azurerm_network_security_group.tf-guide-sg: Still creating... (10s elapsed)
+azurerm_virtual_network.vnet: Still creating... (20s elapsed)
+azurerm_network_security_group.tf-guide-sg: Still creating... (20s elapsed)
+azurerm_virtual_network.vnet: Creation complete after 20s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...Microsoft.Network/virtualNetworks/vnet)
+azurerm_subnet.subnet: Creating...
+  address_prefix:       "" => "10.0.10.0/24"
+  ip_configurations.#:  "" => "<computed>"
+  name:                 "" => "tfguidesubnet"
+  resource_group_name:  "" => "Shajiv-terraform"
+  virtual_network_name: "" => "vnet"
+azurerm_network_security_group.tf-guide-sg: Creation complete after 20s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...twork/networkSecurityGroups/tfguide-sg)
+azurerm_subnet.subnet: Still creating... (10s elapsed)
+azurerm_subnet.subnet: Creation complete after 10s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...ualNetworks/vnet/subnets/tfguidesubnet)
+azurerm_network_interface.tf-guide-nic: Creating...
+  applied_dns_servers.#:                                              "" => "<computed>"
+  dns_servers.#:                                                      "" => "<computed>"
+  enable_accelerated_networking:                                      "" => "false"
+  enable_ip_forwarding:                                               "" => "false"
+  internal_dns_name_label:                                            "" => "<computed>"
+  internal_fqdn:                                                      "" => "<computed>"
+  ip_configuration.#:                                                 "" => "1"
+  ip_configuration.0.application_gateway_backend_address_pools_ids.#: "" => "<computed>"
+  ip_configuration.0.application_security_group_ids.#:                "" => "<computed>"
+  ip_configuration.0.load_balancer_backend_address_pools_ids.#:       "" => "<computed>"
+  ip_configuration.0.load_balancer_inbound_nat_rules_ids.#:           "" => "<computed>"
+  ip_configuration.0.name:                                            "" => "tfguideipconfig"
+  ip_configuration.0.primary:                                         "" => "<computed>"
+  ip_configuration.0.private_ip_address_allocation:                   "" => "dynamic"
+  ip_configuration.0.private_ip_address_version:                      "" => "IPv4"
+  ip_configuration.0.public_ip_address_id:                            "" => "/subscriptions/7a9c113c-c08f-43c8-960a-f397ce350858/resourceGroups/Shajiv-terraform/providers/Microsoft.Network/publicIPAddresses/tfguide-ip"
+  ip_configuration.0.subnet_id:                                       "" => "/subscriptions/7a9c113c-c08f-43c8-960a-f397ce350858/resourceGroups/Shajiv-terraform/providers/Microsoft.Network/virtualNetworks/vnet/subnets/tfguidesubnet"
+  location:                                                           "" => "southeastasia"
+  mac_address:                                                        "" => "<computed>"
+  name:                                                               "" => "tfguidetf-guide-nic"
+  network_security_group_id:                                          "" => "/subscriptions/7a9c113c-c08f-43c8-960a-f397ce350858/resourceGroups/Shajiv-terraform/providers/Microsoft.Network/networkSecurityGroups/tfguide-sg"
+  private_ip_address:                                                 "" => "<computed>"
+  private_ip_addresses.#:                                             "" => "<computed>"
+  resource_group_name:                                                "" => "Shajiv-terraform"
+  tags.%:                                                             "" => "<computed>"
+  virtual_machine_id:                                                 "" => "<computed>"
+azurerm_network_interface.tf-guide-nic: Creation complete after 0s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-.../networkInterfaces/tfguidetf-guide-nic)
+azurerm_virtual_machine.site: Creating...
+  availability_set_id:                                                "" => "<computed>"
+  delete_data_disks_on_termination:                                   "" => "false"
+  delete_os_disk_on_termination:                                      "" => "true"
+  identity.#:                                                         "" => "<computed>"
+  location:                                                           "" => "southeastasia"
+  name:                                                               "" => "shajivteraform-southeastasia"
+  network_interface_ids.#:                                            "" => "1"
+  network_interface_ids.0:                                            "" => "/subscriptions/7a9c113c-c08f-43c8-960a-f397ce350858/resourceGroups/Shajiv-terraform/providers/Microsoft.Network/networkInterfaces/tfguidetf-guide-nic"
+  os_profile.#:                                                       "" => "1"
+  os_profile.4144788423.admin_password:                               "<sensitive>" => "<sensitive>"
+  os_profile.4144788423.admin_username:                               "" => "adminuser"
+  os_profile.4144788423.computer_name:                                "" => "shajivteraform"
+  os_profile.4144788423.custom_data:                                  "" => "<computed>"
+  os_profile_linux_config.#:                                          "" => "1"
+  os_profile_linux_config.2972667452.disable_password_authentication: "" => "false"
+  os_profile_linux_config.2972667452.ssh_keys.#:                      "" => "0"
+  resource_group_name:                                                "" => "Shajiv-terraform"
+  storage_data_disk.#:                                                "" => "<computed>"
+  storage_image_reference.#:                                          "" => "1"
+  storage_image_reference.1458860473.id:                              "" => ""
+  storage_image_reference.1458860473.offer:                           "" => "UbuntuServer"
+  storage_image_reference.1458860473.publisher:                       "" => "Canonical"
+  storage_image_reference.1458860473.sku:                             "" => "16.04-LTS"
+  storage_image_reference.1458860473.version:                         "" => "latest"
+  storage_os_disk.#:                                                  "" => "1"
+  storage_os_disk.0.caching:                                          "" => "ReadWrite"
+  storage_os_disk.0.create_option:                                    "" => "FromImage"
+  storage_os_disk.0.disk_size_gb:                                     "" => "<computed>"
+  storage_os_disk.0.managed_disk_id:                                  "" => "<computed>"
+  storage_os_disk.0.managed_disk_type:                                "" => "Standard_LRS"
+  storage_os_disk.0.name:                                             "" => "shajivteraform-osdisk"
+  storage_os_disk.0.write_accelerator_enabled:                        "" => "false"
+  tags.%:                                                             "" => "<computed>"
+  vm_size:                                                            "" => "Standard_A1_v2"
+azurerm_virtual_machine.site: Still creating... (10s elapsed)
+azurerm_virtual_machine.site: Still creating... (20s elapsed)
+azurerm_virtual_machine.site: Still creating... (30s elapsed)
+azurerm_virtual_machine.site: Still creating... (40s elapsed)
+azurerm_virtual_machine.site: Still creating... (50s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m0s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m10s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m20s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m30s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m40s elapsed)
+azurerm_virtual_machine.site: Still creating... (1m50s elapsed)
+azurerm_virtual_machine.site: Still creating... (2m0s elapsed)
+azurerm_virtual_machine.site: Still creating... (2m10s elapsed)
+azurerm_virtual_machine.site: Still creating... (2m20s elapsed)
+azurerm_virtual_machine.site: Still creating... (2m30s elapsed)
+azurerm_virtual_machine.site: Provisioning with 'file'...
+azurerm_virtual_machine.site: Provisioning with 'remote-exec'...
+azurerm_virtual_machine.site (remote-exec): Connecting to remote host via SSH...
+azurerm_virtual_machine.site (remote-exec):   Host: shajivteraform.southeastasia.cloudapp.azure.com
+azurerm_virtual_machine.site (remote-exec):   User: adminuser
+azurerm_virtual_machine.site (remote-exec):   Password: true
+azurerm_virtual_machine.site (remote-exec):   Private key: false
+azurerm_virtual_machine.site (remote-exec):   SSH Agent: false
+azurerm_virtual_machine.site (remote-exec):   Checking Host Key: false
+azurerm_virtual_machine.site (remote-exec): Connected!
+azurerm_virtual_machine.site: Still creating... (2m40s elapsed)
+azurerm_virtual_machine.site: Still creating... (2m50s elapsed)
+azurerm_virtual_machine.site: Still creating... (3m0s elapsed)
+azurerm_virtual_machine.site: Still creating... (3m10s elapsed)
+azurerm_virtual_machine.site: Still creating... (3m20s elapsed)
+azurerm_virtual_machine.site (remote-exec): Your demo is now ready.
+azurerm_virtual_machine.site: Creation complete after 3m25s (ID: /subscriptions/7a9c113c-c08f-43c8-960a-...lMachines/shajivteraform-southeastasia)
+
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+App_Server_URL = http://shajivteraform.southeastasia.cloudapp.azure.com
+_instructions = This output contains plain text. You can add variables too.
+public_dns = shajivteraform.southeastasia.cloudapp.azure.com
